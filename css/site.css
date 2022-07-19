@@ -5,6 +5,7 @@
     --mdm-secondary-color: #e2c957;
     --mdm-highlight-color:#6fcbc6;
     --mdm-nav-toggler-glow: #e2c957;
+    --mdm-offset-color: #6c2ebd;
 
 }
 
@@ -127,4 +128,24 @@ body{
 
 .checklist>li i{
     color:var(--mdm-primary-color);
+}
+
+.fizz{
+    font-size: 1rem;
+    color:var(--mdm-highlight-color);
+}
+
+.buzz{
+    font-size: 1rem;
+    color: var(--mdm-secondary-color);
+}
+
+.results{
+    font-size:1rem;
+    color: var(--mdm-dark-color);
+}
+
+.fizzbuzz{
+    font-size: 1rem;
+    color: var(--mdm-offset-color)
 }
