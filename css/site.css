@@ -131,21 +131,25 @@ body{
 }
 
 .fizz{
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
     color:var(--mdm-highlight-color);
 }
 
 .buzz{
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
     color: var(--mdm-secondary-color);
 }
 
 .results{
-    font-size:1rem;
+    font-size:1.5rem;
+    font-weight: 500;
     color: var(--mdm-dark-color);
 }
 
 .fizzbuzz{
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
     color: var(--mdm-offset-color)
 }
