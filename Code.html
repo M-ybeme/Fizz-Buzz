@@ -52,10 +52,10 @@
                         <a class="nav-link active" aria-current="page" href="Code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">The Repo</a>
+                        <a class="nav-link" href="https://github.com/M-ybeme/TacoCat">The Repo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="https://marlomayberrydevportfolio.netlify.app">About</a>
                     </li>
                  </ul>
             </div>
@@ -68,33 +68,98 @@
                     <pre class="line-numbers">
                         <code class="language-javascript">
 
-                            function getValue(message){
-                                alert("Hello World!");
-                            }
-                            
-                            function getValue2()
-                            {
-                                let msg = '';
-                                msg = document.getElementById("message").value;
-                            
-                                swal.fire(
-                                {
-                                    backdrop: false,
-                                    title: 'APP NAME',
-                                    text: msg
-                                    }
-                                )
-                            }
+                            //controler function
+function getValues() {
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+
+    ///parese ints///
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        let numbers = generateNumbers(startValue, endValue)
+        displayValues(numbers);
+    } else {
+        swal.fire({
+            backdrop: false,
+            title: 'Oops',
+            text: "You can only use numbers",
+        });
+    }
+}
+
+//buisness logic function
+function generateNumbers(start, stop) {
+    let numbers = [];
+    for (let i = start; i <= stop; i++) {
+        
+        if ([i] % 3 == 0 && [i] % 5 == 0) {
+            numbers.push("FizzBuzz");
+        } else if ([i] % 3 == 0) {
+            numbers.push("Fizz")
+        } else if ([i] % 5 == 0) {
+            numbers.push("Buzz");
+        } else {
+            numbers.push(i);
+        }
+    }
+    return numbers;
+}
+//view function
+function displayValues(valuesArry){
+    let results = document.getElementById("results");
+    results.innerHTML = "";
+
+    for (let index = 0; index < valuesArry.length; index++) {
+
+       
+        // create the div tag
+        let div = document.createElement("div");
+
+        //I get the value in the array at the current index
+        div.innerHTML = valuesArry[index];
+
+        //add class
+        div.classList.add("col");
+        if ([index] % 3 == 0 && [index] % 5 == 0) {
+            div.classList.add("fizzbuzz");
+        } else if ([index] % 3 == 0) {
+            div.classList.add("fizz");
+        } else if ([index] % 5 == 0) {
+            div.classList.add("buzz")
+        } else {
+            div.classList.add("results")
+            
+        }
+        
+        results.appendChild(div);
+    }
+    //if divisable by both
+    //if by 5
+    // if divisable by 3
+}
 
                         </code>
                     </pre>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <P>tHE cODE IS STRUCTURED IN TWO FUNCTIONS</P>
-                    <h5>getValue</h5>
-                    <p>Display an Alert to the page</p>
-                    <h5>getValue2</h5>
-                    <p>Displays a user entered message in a sweet alerts window</p>
+                    <P>The Code is comprised of three parts.</P>
+                    <h5>"getValue"</h5>
+                    <p>This is the controller function. It retreaves the
+                         inputs from the html document. It then calls on 
+                         the other functions to use these variables.</p>
+                    <h5>"generateNumbers"</h5>
+                    <p>Uses the values that have been passed into it
+                         and  determins if they are divisable by 5 and/or 3
+                         by using an if-else statement.
+                        Then if those numbers are divisable they are then 
+                        replaced with the words, "Fizz", "Buzz", or "FizzBuzz". 
+                        It then returns that into the display fuction.</p>
+                        <h5>"displayValues"</h5>
+                        <p>The display function uses an if-else statement to
+                            asign css classes to the numbers bassed on the 
+                            same process that determined if they were dividable
+                             by 3 and/or 5.</p>
                 </div>
             </div>
         </div>
